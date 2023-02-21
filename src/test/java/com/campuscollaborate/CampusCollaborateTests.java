@@ -1,10 +1,10 @@
-package com.jwt.Security;
+package com.campuscollaborate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SecurityApplicationTests {
+class CampusCollaborateTests {
 
 	@Test
 	void contextLoads() {

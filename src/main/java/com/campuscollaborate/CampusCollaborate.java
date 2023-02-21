@@ -1,13 +1,13 @@
-package com.jwt.Security;
+package com.campuscollaborate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecurityApplication {
+public class CampusCollaborate {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityApplication.class, args);
+		SpringApplication.run(CampusCollaborate.class, args);
 	}
 
 }
