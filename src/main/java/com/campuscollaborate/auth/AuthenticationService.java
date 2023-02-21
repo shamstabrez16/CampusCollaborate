@@ -4,7 +4,6 @@ import com.campuscollaborate.config.JwtService;
 import com.campuscollaborate.user.Role;
 import com.campuscollaborate.user.UserRepository;
 import com.campuscollaborate.user.Users;
-import com.jwt.Security.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,7 +17,6 @@ public class AuthenticationService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
-
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
