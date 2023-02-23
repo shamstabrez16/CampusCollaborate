@@ -1,6 +1,6 @@
 package com.campuscollaborate.config;
 
-import com.campuscollaborate.user.UserRepository;
+import com.campuscollaborate.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

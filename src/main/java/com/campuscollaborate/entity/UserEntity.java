@@ -1,5 +1,6 @@
-package com.campuscollaborate.user;
+package com.campuscollaborate.entity;
 
+import com.campuscollaborate.utility.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,32 +20,40 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class Users implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private String given_name;
-    private  String last_name;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+    @Column(name = "given_name", nullable = false)
+    private String givenName;
+    @Column(name = "last_name", nullable = false)
+    private  String lastName;
+    @Column(name = "dob", nullable = false)
     private Date dob;
-    private  String education_level;
-    private  String course_of_study;
+    @Column(name = "education_level", nullable = false)
+    private  String educationLevel;
+    @Column(name = "course_of_study", nullable = false)
+    private  String courseOfStudy;
+    @Column(name = "email", nullable = false)
     private  String email;
+    @Column(name = "phone", nullable = false)
     private  String phone;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Column(name = "password", nullable = false)
     private  String  password;
 
     @Override
     public String toString() {
-        return "Users{" +
-                "id=" + id +
-                ", given_name='" + given_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+        return "UserEntity{" +
+                "id=" + userId +
+                ", given_name='" + givenName + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", dob=" + dob +
-                ", education_level='" + education_level + '\'' +
-                ", course_of_study='" + course_of_study + '\'' +
+                ", education_level='" + educationLevel + '\'' +
+                ", course_of_study='" + courseOfStudy + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';

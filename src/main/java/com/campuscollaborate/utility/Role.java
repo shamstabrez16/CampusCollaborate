@@ -1,4 +1,4 @@
-package com.campuscollaborate.user;
+package com.campuscollaborate.utility;
 
 public enum Role {
     USER,

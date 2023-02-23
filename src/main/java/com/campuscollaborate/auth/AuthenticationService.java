@@ -1,9 +1,9 @@
 package com.campuscollaborate.auth;
 
 import com.campuscollaborate.config.JwtService;
-import com.campuscollaborate.user.Role;
-import com.campuscollaborate.user.UserRepository;
-import com.campuscollaborate.user.Users;
+import com.campuscollaborate.utility.Role;
+import com.campuscollaborate.entity.UserEntity;
+import com.campuscollaborate.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,13 +20,13 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        var user = Users.builder()
-                .given_name(request.getGiven_name())
-                .last_name(request.getLast_name())
+        var user = UserEntity.builder()
+                .givenName(request.getGiven_name())
+                .lastName(request.getLast_name())
                 .email(request.getEmail())
-                .course_of_study(request.getCourse_of_study())
+                .courseOfStudy(request.getCourse_of_study())
                 .dob(request.getDob())
-                .education_level(request.getEducation_level())
+                .educationLevel(request.getEducation_level())
                 .phone(request.getPhone())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
