@@ -1,4 +1,4 @@
-package com.campuscollaborate.auth;
+package com.campuscollaborate.requestEntity;
 
 import com.campuscollaborate.utility.Role;
 import jakarta.persistence.EnumType;
@@ -14,11 +14,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterRequest {
-    private String given_name;
-    private  String last_name;
+    private String givenName;
+    private  String lastName;
     private Date dob;
-    private  String education_level;
-    private  String course_of_study;
+    private  String educationLevel;
+    private  String courseOfStudy;
     private  String email;
     private String password;
     private  String phone;

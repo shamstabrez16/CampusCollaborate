@@ -16,13 +16,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 class CampusCollaborateTests {
-  
+
+    @Test
+    public void demoTest(){
+        assertTrue(true);
+    }
 
 
 }

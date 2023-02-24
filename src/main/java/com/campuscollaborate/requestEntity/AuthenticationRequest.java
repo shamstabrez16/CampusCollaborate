@@ -1,4 +1,4 @@
-package com.campuscollaborate.auth;
+package com.campuscollaborate.requestEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class AuthenticationRequest {
     private  String email;
     private String password;
+    private String newPassword;
 }

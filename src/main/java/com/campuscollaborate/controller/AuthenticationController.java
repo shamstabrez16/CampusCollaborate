@@ -1,6 +1,10 @@
-package com.campuscollaborate.auth;
+package com.campuscollaborate.controller;
 
 
+import com.campuscollaborate.requestEntity.AuthenticationRequest;
+import com.campuscollaborate.requestEntity.RegisterRequest;
+import com.campuscollaborate.responseEntity.AuthenticationResponse;
+import com.campuscollaborate.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,4 +25,12 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticateUser(@RequestBody AuthenticationRequest request){
         return  ResponseEntity.ok(authenticationService.authenticate(request));
     }
+
+    @PutMapping ("/update_password")
+    public ResponseEntity<AuthenticationResponse> updateUserPassword(@RequestBody AuthenticationRequest request){
+        return  ResponseEntity.ok(authenticationService.updateUserPassword(request));
+    }
+
+
+
 }

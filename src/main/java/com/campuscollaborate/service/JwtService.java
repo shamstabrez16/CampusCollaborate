@@ -1,4 +1,4 @@
-package com.campuscollaborate.config;
+package com.campuscollaborate.service;
 
 
 import io.jsonwebtoken.Claims;
