@@ -44,6 +44,16 @@ public class UserEntity implements UserDetails {
     private Role role;
     @Column(name = "password", nullable = false)
     private  String  password;
+  //  @Column(name = "project_ids", columnDefinition = "bigint[]")
+   // private Long[] projectIds;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<ProjectEntity> projects;
+
+    @ElementCollection
+    @CollectionTable(name = "user_projects", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "project_id")
+    private List<Long> projectIds;
+
 
     @Override
     public String toString() {

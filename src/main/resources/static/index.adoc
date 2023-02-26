@@ -9,4 +9,7 @@ request
 include::{snippets}/authentication-controller-test/test-register-user/http-request.adoc [ ]
 response
 include::{snippets}/authentication-controller-test/test-register-user/http-response.adoc [ ]
+
+
+
 As you can see the format is very simple, and in fact you always get the same message.

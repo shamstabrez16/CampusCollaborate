@@ -1,8 +1,10 @@
 package com.campuscollaborate.config;
 
 import com.campuscollaborate.repository.UserRepository;
+import com.campuscollaborate.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @RequiredArgsConstructor
+@ComponentScan(basePackages = "com.campuscollaborate")
 public class ApplicationConfig {
 
     private final UserRepository userRepository;
@@ -41,5 +44,10 @@ public class ApplicationConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return  new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public UserService userService() {
+        return new UserService();
     }
 }
