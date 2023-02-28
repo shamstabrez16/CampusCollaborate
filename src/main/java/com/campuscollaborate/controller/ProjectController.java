@@ -27,18 +27,14 @@ public class ProjectController {
 
     @GetMapping("/all")
     public ResponseEntity<List<ProjectDto>> getAllProjects() {
-        List<ProjectEntity> projectEntities = projectService.getAllProjects();
-        List<ProjectDto> projects = new ArrayList<>();
-        for (ProjectEntity project : projectEntities ) {
-            projects.add(Mapper.ProjectEntityToProjectDto(project));
-        }
-        return ResponseEntity.ok(projects);
+        List<ProjectDto> projects = projectService.getAllProjects();
+        return ResponseEntity.ok().body(projects);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<ProjectEntity>> getProjectById(@PathVariable(value = "id") int projectId) {
+    public ResponseEntity<Optional<ProjectDto>> getProjectById(@PathVariable(value = "id") int projectId) {
 
-        Optional<ProjectEntity> project = projectService.getProjectById(projectId);
+        Optional<ProjectDto> project = projectService.getProjectById(projectId);
         if (project.isPresent()) {
             return ResponseEntity.ok().body(project);
         } else {

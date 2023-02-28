@@ -67,7 +67,7 @@ public class AuthenticationControllerTest {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setPassword("password");
         registerRequest.setGivenName("shams");
-        registerRequest.setEmail("shamsi@wiu.edu");
+        registerRequest.setEmail("s"+ Math.random()+"@wiu.edu");
         registerRequest.setDob(new Date("02/01/1994"));
         registerRequest.setPhone("9876543210");
         registerRequest.setLastName("mohammad");

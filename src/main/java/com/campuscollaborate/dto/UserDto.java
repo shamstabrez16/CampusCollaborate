@@ -24,4 +24,6 @@ public class UserDto {
     private  String educationLevel;
     private  String courseOfStudy;
     private Date dob;
+
+
 }

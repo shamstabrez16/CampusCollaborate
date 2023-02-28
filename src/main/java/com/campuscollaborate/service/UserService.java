@@ -1,5 +1,6 @@
 package com.campuscollaborate.service;
 
+import com.campuscollaborate.dto.ProjectDto;
 import com.campuscollaborate.dto.UserDto;
 import com.campuscollaborate.entity.ProjectEntity;
 import com.campuscollaborate.entity.UserEntity;
@@ -20,7 +21,6 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private ProjectRepository projectRepository;
-
     public List<UserDto> getAllUsers() {
         List<UserEntity> users = userRepository.findAll();
         List<UserDto> usersDto = new ArrayList<>();
@@ -41,24 +41,36 @@ public class UserService {
 
     }
 
-    public Optional<UserEntity> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    public List<ProjectEntity> getProjectsByUserId(int userId) {
-        return projectRepository.findByUserUserId(userId);
-    }
-
-    public List<ProjectEntity> getProjectsByUserEmail(String email) {
-
-        Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
-        if (userEntityOptional.isPresent()) {
-            UserEntity user = userEntityOptional.get();
-            return user.getProjects();
-        } else {
-            return  null;
+    public UserDto getUserByEmail(String email) {
+        Optional<UserEntity> user= userRepository.findByEmail(email);
+        UserDto userDTO = null;
+        if(user!=null && user.isPresent()){
+            userDTO =Mapper.userEntityToUserDTOOOptional(user);
         }
+        return userDTO;
+    }
 
+    public List<ProjectDto> getProjectsByUserId(int userId) {
+        List<ProjectEntity> projectEntities = projectRepository.findByUserUserId(userId);
+        List<ProjectDto> projects = new ArrayList<>();
+        for (ProjectEntity project : projectEntities ) {
+            projects.add(Mapper.ProjectEntityToProjectDto(project));
+        }
+        return projects;
+    }
+
+    public List<ProjectDto> getProjectsByUserEmail(String email) {
+
+        Optional<UserEntity> user = userRepository.findByEmail(email);
+        List<ProjectDto> projects = new ArrayList<>();
+        if(user.isPresent()){
+            List<ProjectEntity> projectEntities = projectRepository.findByUserUserId(Math.toIntExact(user.get().getUserId()));
+            for (ProjectEntity project : projectEntities ) {
+                projects.add(Mapper.ProjectEntityToProjectDto(project));
+            }
+            return projects;
+        }
+        return  projects;
     }
     public UserEntity addUser(UserEntity user) {
       return  userRepository.save(user);
